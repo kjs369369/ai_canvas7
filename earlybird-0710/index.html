@@ -1,0 +1,1532 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI캔버스 7기 | 7/10 얼리버드</title>
+  <meta name="description" content="AI캔버스 7기. 코딩 0줄로 10주 만에 AI 비서, GEO 콘텐츠, 웹사이트, 판매 퍼널까지 완성하는 온라인 LIVE 과정입니다.">
+  <link rel="canonical" href="https://ai-canvas7.vercel.app/earlybird-0710/">
+  <meta property="og:title" content="AI캔버스 7기 | 7/10 얼리버드">
+  <meta property="og:description" content="ChatGPT부터 GEO 블로그, AI 영상, 랜딩페이지, 결제 퍼널까지. 이해가 아니라 매주 완성하는 10주 과정.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ai-canvas7.vercel.app/earlybird-0710/">
+  <meta property="og:site_name" content="AI캔버스 7기">
+  <meta property="og:image" content="https://ai-canvas7.vercel.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI캔버스 7기 코딩 0줄 10주 만에 팔리는 시스템">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI캔버스 7기 | 7/10 얼리버드">
+  <meta name="twitter:description" content="AI 비서, GEO 콘텐츠, 웹사이트, 판매 퍼널까지 매주 완성하는 온라인 LIVE 10주 과정.">
+  <meta name="twitter:image" content="https://ai-canvas7.vercel.app/og.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --navy: #000000;
+      --navy-deep: #000000;
+      --navy-black: #000000;
+      --gold: #B8893A;
+      --gold-bright: #FDB108;
+      --ink: #333333;
+      --grey: #6B7280;
+      --light-navy: #E8ECF3;
+      --light-gold: #F7EFE0;
+      --white: #FFFFFF;
+      --paper: #FAFBFC;
+      --line: rgba(0, 0, 0, 0.14);
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+      --max: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      word-break: keep-all;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -80px;
+      z-index: 1000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--gold-bright);
+      color: var(--navy);
+      font-weight: 800;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+      outline: 3px solid var(--white);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .nav {
+      width: min(100% - 40px, var(--max));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0;
+      color: var(--white);
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand small {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      padding: 8px 0;
+    }
+
+    .nav-links a:focus-visible,
+    .cta:focus-visible,
+    .link-card:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid rgba(253, 177, 8, 0.7);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    .section {
+      padding: 92px 20px;
+    }
+
+    .section.dark {
+      color: var(--white);
+      background: var(--navy-deep);
+    }
+
+    .section.light {
+      background: var(--paper);
+    }
+
+    .section.blue {
+      background: var(--light-navy);
+    }
+
+    .section.gold {
+      background: var(--light-gold);
+    }
+
+    .wrap {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 68px);
+      display: grid;
+      align-items: center;
+      padding: 68px 20px 84px;
+      color: var(--white);
+      background: #000000;
+      overflow: hidden;
+    }
+
+    .gemini-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.82;
+      pointer-events: none;
+    }
+
+    .gemini-bg path {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: draw-line 6.5s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 10px rgba(253, 177, 8, 0.18));
+    }
+
+    .gemini-bg path:nth-child(2) {
+      animation-delay: 0.35s;
+    }
+
+    .gemini-bg path:nth-child(3) {
+      animation-delay: 0.7s;
+    }
+
+    .gemini-bg path:nth-child(4) {
+      animation-delay: 1.05s;
+    }
+
+    .gemini-bg path:nth-child(5) {
+      animation-delay: 1.4s;
+    }
+
+    @keyframes draw-line {
+      from {
+        stroke-dashoffset: 1;
+      }
+
+      to {
+        stroke-dashoffset: -0.08;
+      }
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 62% 32%, rgba(253, 177, 8, 0.13), transparent 31%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.68) 48%, rgba(0, 0, 0, 0.9)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.2), #000000 92%);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: #F9D991;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--gold-bright);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 22px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.13;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(18px, 2.4vw, 24px);
+      line-height: 1.62;
+      font-weight: 600;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 30px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 15px 22px;
+      border-radius: 12px;
+      background: var(--gold-bright);
+      color: var(--navy);
+      box-shadow: 0 14px 28px rgba(253, 177, 8, 0.28);
+      font-size: 17px;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta:hover {
+      transform: scale(1.03);
+      box-shadow: 0 20px 40px rgba(253, 177, 8, 0.34);
+    }
+
+    .cta.secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      box-shadow: none;
+    }
+
+    .cta.secondary:hover {
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .price-note {
+      margin: 14px 0 0;
+      color: #F9D991;
+      font-weight: 800;
+    }
+
+    .hero-panel {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-top {
+      padding: 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .panel-label {
+      margin-bottom: 6px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .panel-title {
+      margin: 0;
+      color: var(--white);
+      font-size: 24px;
+      line-height: 1.32;
+      font-weight: 900;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 22px;
+    }
+
+    .timebox {
+      min-width: 0;
+      padding: 14px 8px;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.42);
+      text-align: center;
+    }
+
+    .timebox strong {
+      display: block;
+      color: var(--gold-bright);
+      font-size: clamp(24px, 4vw, 38px);
+      line-height: 1;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timebox span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .panel-bottom {
+      padding: 0 22px 22px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-title.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .dark .kicker {
+      color: var(--gold-bright);
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      color: var(--navy);
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.22;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .dark h2 {
+      color: var(--white);
+    }
+
+    .lead {
+      margin-bottom: 0;
+      color: var(--grey);
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .dark .lead {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card,
+    .result,
+    .benefit,
+    .faq details,
+    .price-card,
+    .profile {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 12px 28px rgba(26, 42, 79, 0.08);
+    }
+
+    .pain {
+      min-height: 174px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      border-radius: 50%;
+      background: var(--light-gold);
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .pain p,
+    .result p,
+    .benefit p {
+      margin-bottom: 0;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .bridge {
+      margin: 30px 0 0;
+      padding: 22px 24px;
+      border-left: 5px solid var(--gold-bright);
+      background: var(--white);
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(26, 42, 79, 0.08);
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .result {
+      min-height: 186px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: var(--white);
+    }
+
+    .result strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold-bright);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .spoken {
+      margin: 30px auto 0;
+      max-width: 760px;
+      padding: 20px 22px;
+      border: 1px solid rgba(253, 177, 8, 0.34);
+      border-radius: 8px;
+      text-align: center;
+      color: #F9D991;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .curriculum {
+      display: grid;
+      gap: 16px;
+    }
+
+    .part {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 12px 28px rgba(26, 42, 79, 0.08);
+    }
+
+    .part h3 {
+      margin: 0;
+      padding: 0;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .part summary {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 64px;
+      padding: 17px 56px 17px 20px;
+      cursor: pointer;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 19px;
+      font-weight: 900;
+      list-style: none;
+    }
+
+    .part summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .part summary::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold-bright);
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .part[open] summary::after {
+      content: "-";
+    }
+
+    .weeks {
+      display: grid;
+    }
+
+    .week {
+      display: grid;
+      grid-template-columns: 90px 92px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 16px 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .week:first-child {
+      border-top: 0;
+    }
+
+    .week .no {
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .week .date {
+      color: var(--grey);
+      font-weight: 800;
+    }
+
+    .week .topic {
+      font-weight: 700;
+    }
+
+    .week.highlight {
+      background: linear-gradient(90deg, rgba(253, 177, 8, 0.16), transparent 74%);
+      border-left: 5px solid var(--gold-bright);
+    }
+
+    .ceremony {
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .profile-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 38px 28px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(253, 177, 8, 0.16), transparent 34%),
+        linear-gradient(160deg, rgba(0, 0, 0, 0.98), rgba(18, 18, 18, 0.98));
+      text-align: center;
+    }
+
+    .profile-aside .name {
+      margin-bottom: 18px;
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 900;
+    }
+
+    .profile-photo-frame {
+      width: min(100%, 330px);
+      aspect-ratio: 1;
+      margin: 0 auto 20px;
+      border: 2px solid rgba(253, 177, 8, 0.82);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.16), rgba(253, 177, 8, 0.08) 45%, rgba(0, 0, 0, 0.72) 78%);
+      box-shadow:
+        0 0 0 10px rgba(253, 177, 8, 0.08),
+        0 26px 54px rgba(0, 0, 0, 0.42);
+      overflow: hidden;
+    }
+
+    .profile-photo {
+      display: block;
+      width: 112%;
+      max-width: none;
+      height: 112%;
+      margin: 3% 0 0 -6%;
+      object-fit: contain;
+      object-position: center 18px;
+      filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.42));
+    }
+
+    .profile-aside .role {
+      color: #F9D991;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .profile-body {
+      padding: 34px;
+    }
+
+    .profile-list {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .profile-list li {
+      padding-left: 18px;
+      position: relative;
+      font-weight: 700;
+    }
+
+    .profile-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .link-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      font-weight: 900;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .link-card:hover {
+      border-color: var(--gold);
+      background: var(--light-gold);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .benefit {
+      min-height: 74px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .benefit span {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .value-box {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: 8px;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .value-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold-bright);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .pricing-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.62fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .price-card {
+      padding: 32px;
+      text-align: center;
+      border: 2px solid rgba(253, 177, 8, 0.5);
+      box-shadow: var(--shadow);
+    }
+
+    .original {
+      margin-bottom: 8px;
+      color: var(--grey);
+      font-size: 20px;
+      font-weight: 800;
+      text-decoration: line-through;
+    }
+
+    .sale {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: clamp(42px, 6vw, 64px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .sale span {
+      font-size: 18px;
+      vertical-align: middle;
+    }
+
+    .discount {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--light-gold);
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .urgency {
+      margin: 0 0 22px;
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .trust {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq details {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      padding: 20px 22px;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .faq details p {
+      margin: 0;
+      padding: 0 22px 22px;
+      color: var(--ink);
+      font-size: 17px;
+    }
+
+    .final-cta {
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      max-width: 760px;
+      margin-inline: auto;
+    }
+
+    .mini-countdown {
+      display: inline-grid;
+      grid-template-columns: repeat(4, minmax(64px, 1fr));
+      gap: 8px;
+      margin: 20px 0 26px;
+    }
+
+    .mini-countdown .timebox {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .policies {
+      display: grid;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .policies details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .policies summary {
+      cursor: pointer;
+      padding: 18px 20px;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .policy-body {
+      padding: 0 20px 20px;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .policy-body ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    .footer {
+      padding: 44px 20px 96px;
+      background: #10182B;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 14px;
+    }
+
+    .footer .wrap {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer strong {
+      color: var(--white);
+      font-size: 16px;
+    }
+
+    .floating-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      z-index: 120;
+      width: min(calc(100% - 32px), 680px);
+      transform: translate(-50%, 130%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.24s ease, opacity 0.24s ease;
+    }
+
+    .floating-cta.is-visible {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .floating-cta .cta {
+      width: 100%;
+      min-height: 58px;
+      border: 1px solid rgba(26, 42, 79, 0.12);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .pricing-layout,
+      .profile {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .results {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        width: min(100% - 32px, var(--max));
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 72px 20px;
+      }
+
+      .hero {
+        padding: 52px 20px 72px;
+      }
+
+      .hero-grid {
+        gap: 30px;
+      }
+
+      .badges {
+        flex-direction: column;
+      }
+
+      .badge {
+        border-radius: 8px;
+      }
+
+      .cta-row,
+      .cta {
+        width: 100%;
+      }
+
+      .cards,
+      .results,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        padding: 16px;
+      }
+
+      .timebox {
+        padding: 12px 6px;
+      }
+
+      .timebox span {
+        font-size: 11px;
+      }
+
+      .week {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .profile-aside,
+      .profile-body,
+      .price-card {
+        padding: 26px 22px;
+      }
+
+      .profile-photo-frame {
+        width: min(100%, 286px);
+      }
+
+      .mini-countdown {
+        width: 100%;
+      }
+
+      .footer {
+        padding-bottom: 102px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .hero-copy,
+      .lead {
+        font-size: 17px;
+      }
+
+      .countdown,
+      .mini-countdown {
+        gap: 6px;
+      }
+
+      .timebox strong {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="#top" aria-label="AI캔버스 7기 홈">
+        AI캔버스 7기
+        <small>AICLab · 메이랜드AI비즈랩</small>
+      </a>
+      <div class="nav-links" aria-label="섹션 이동">
+        <a href="#curriculum">커리큘럼</a>
+        <a href="#instructor">강사</a>
+        <a href="#pricing">수강료</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <svg class="gemini-bg" width="1440" height="890" viewBox="0 0 1440 890" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0 663C145.5 663 191 666.265 269 647C326.5 630 339.5 621 397.5 566C439 531.5 455 529.5 490 523C509.664 519.348 521 503.736 538 504.236C553.591 504.236 562.429 514.739 584.66 522.749C592.042 525.408 600.2 526.237 607.356 523.019C624.755 515.195 641.446 496.324 657 496.735C673.408 496.735 693.545 519.572 712.903 526.769C718.727 528.934 725.184 528.395 730.902 525.965C751.726 517.115 764.085 497.106 782 496.735C794.831 496.47 804.103 508.859 822.469 518.515C835.13 525.171 850.214 526.815 862.827 520.069C875.952 513.049 889.748 502.706 903.5 503.736C922.677 505.171 935.293 510.562 945.817 515.673C954.234 519.76 963.095 522.792 972.199 524.954C996.012 530.611 1007.42 534.118 1034 549C1077.5 573.359 1082.5 594.5 1140 629C1206 670 1328.5 662.5 1440 662.5" stroke="#FDB108" stroke-width="2" fill="none" pathLength="1"/>
+        <path d="M0 587.5C147 587.5 277 587.5 310 573.5C348 563 392.5 543.5 408 535C434 523.5 426 526.235 479 515.235C494 512.729 523 510.435 534.5 512.735C554.5 516.735 555.5 523.235 576 523.735C592 523.735 616 496.735 633 497.235C648.671 497.235 661.31 515.052 684.774 524.942C692.004 527.989 700.2 528.738 707.349 525.505C724.886 517.575 741.932 498.33 757.5 498.742C773.864 498.742 791.711 520.623 810.403 527.654C816.218 529.841 822.661 529.246 828.451 526.991C849.246 518.893 861.599 502.112 879.5 501.742C886.47 501.597 896.865 506.047 907.429 510.911C930.879 521.707 957.139 519.639 982.951 520.063C1020.91 520.686 1037.5 530.797 1056.5 537C1102.24 556.627 1116.5 570.704 1180.5 579.235C1257.5 589.5 1279 587 1440 588" stroke="#FFD36B" stroke-width="2" fill="none" pathLength="1"/>
+        <path d="M0 514C147.5 514.333 294.5 513.735 380.5 513.735C405.976 514.94 422.849 515.228 436.37 515.123C477.503 514.803 518.631 506.605 559.508 511.197C564.04 511.706 569.162 512.524 575 513.735C588 516.433 616 521.702 627.5 519.402C647.5 515.402 659 499.235 680.5 499.235C700.5 499.235 725 529.235 742 528.735C757.654 528.735 768.77 510.583 791.793 500.59C798.991 497.465 807.16 496.777 814.423 499.745C832.335 507.064 850.418 524.648 866 524.235C882.791 524.235 902.316 509.786 921.814 505.392C926.856 504.255 932.097 504.674 937.176 505.631C966.993 511.248 970.679 514.346 989.5 514.735C1006.3 515.083 1036.5 513.235 1055.5 513.235C1114.5 513.235 1090.5 513.235 1124 513.235C1177.5 513.235 1178.99 514.402 1241 514.402C1317.5 514.402 1274.5 512.568 1440 513.235" stroke="#FFF2C6" stroke-width="2" fill="none" pathLength="1"/>
+        <path d="M0 438.5C150.5 438.5 261 438.318 323.5 456.5C351 464.5 387.517 484.001 423.5 494.5C447.371 501.465 472 503.735 487 507.735C503.786 512.212 504.5 516.808 523 518.735C547 521.235 564.814 501.235 584.5 501.235C604.5 501.235 626 529.069 643 528.569C658.676 528.569 672.076 511.63 695.751 501.972C703.017 499.008 711.231 498.208 718.298 501.617C735.448 509.889 751.454 529.98 767 529.569C783.364 529.569 801.211 507.687 819.903 500.657C825.718 498.469 832.141 499.104 837.992 501.194C859.178 508.764 873.089 523.365 891 523.735C907.8 524.083 923 504.235 963 506.735C1034.5 506.735 1047.5 492.68 1071 481.5C1122.5 457 1142.23 452.871 1185 446.5C1255.5 436 1294 439 1439.5 439" stroke="#B8893A" stroke-width="2" fill="none" pathLength="1"/>
+        <path d="M0.5 364C145.288 362.349 195 361.5 265.5 378C322 391.223 399.182 457.5 411 467.5C424.176 478.649 456.916 491.677 496.259 502.699C498.746 503.396 501.16 504.304 503.511 505.374C517.104 511.558 541.149 520.911 551.5 521.236C571.5 521.236 590 498.736 611.5 498.736C631.5 498.736 652.5 529.236 669.5 528.736C685.171 528.736 697.81 510.924 721.274 501.036C728.505 497.988 736.716 497.231 743.812 500.579C761.362 508.857 778.421 529.148 794 528.736C810.375 528.736 829.35 508.68 848.364 502.179C854.243 500.169 860.624 500.802 866.535 502.718C886.961 509.338 898.141 519.866 916 520.236C932.8 520.583 934.5 510.236 967.5 501.736C1011.5 491 1007.5 493.5 1029.5 480C1069.5 453.5 1072 440.442 1128.5 403.5C1180.5 369.5 1275 360.374 1439 364" stroke="#FDB108" stroke-width="2" fill="none" pathLength="1"/>
+      </svg>
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow">AICLab · 메이랜드AI비즈랩 | 생성형AI전문가 과정</div>
+          <h1>코딩 0줄. 10주 뒤, 당신은 '팔리는 시스템'을 갖게 됩니다.</h1>
+          <p class="hero-copy">ChatGPT부터 GEO 블로그·유튜브, 결제되는 판매 퍼널까지. '이해'가 아니라 매주 '완성된 결과물'을 손에 들고 나가는 10주 과정.</p>
+          <ul class="badges" aria-label="과정 핵심 정보">
+            <li class="badge">2026.7.15(수)~9.16(수) · 매주 수 20:00</li>
+            <li class="badge">온라인 LIVE · Zoom</li>
+            <li class="badge">수료증 + 자격증(선택, 유료) + 상장</li>
+          </ul>
+          <div class="cta-row">
+            <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">지금 얼리버드로 신청하기</a>
+            <a class="cta secondary" href="tel:010-8921-9536">전화로 문의하기</a>
+          </div>
+          <p class="price-note">정가 79만원 → 얼리버드 55만원 · 선착순 10명</p>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="얼리버드 마감 카운트다운">
+          <div class="panel-top">
+            <div class="panel-label">얼리버드 마감까지</div>
+            <p class="panel-title">2026년 7월 10일(금) 23:59 종료</p>
+          </div>
+          <div class="countdown" data-countdown>
+            <div class="timebox"><strong data-days>00</strong><span>일</span></div>
+            <div class="timebox"><strong data-hours>00</strong><span>시간</span></div>
+            <div class="timebox"><strong data-minutes>00</strong><span>분</span></div>
+            <div class="timebox"><strong data-seconds>00</strong><span>초</span></div>
+          </div>
+          <div class="panel-bottom">마감 이후에는 정가 790,000원이 적용됩니다.</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section light" id="problem">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="kicker">문제 공감</span>
+          <h2>혹시, 이런 적 없으세요?</h2>
+          <p class="lead">AI 도구를 배우는 것과 내 사업에 작동하는 결과물을 갖는 것은 전혀 다른 일입니다.</p>
+        </div>
+        <div class="cards">
+          <article class="card pain reveal"><span class="check">✓</span><p>"AI는 100번 들었는데, 왜 내 결과물은 0개일까?"</p></article>
+          <article class="card pain reveal"><span class="check">✓</span><p>강의 들을 땐 이해했는데, 막상 혼자 하면 아무것도 못 만든다.</p></article>
+          <article class="card pain reveal"><span class="check">✓</span><p>코딩은 나랑 상관없는 일이라 일찌감치 포기했다.</p></article>
+          <article class="card pain reveal"><span class="check">✓</span><p>내가 일을 멈추면 매출도 같이 멈춘다.</p></article>
+        </div>
+        <p class="bridge reveal">문제는 '정보'가 아니라 '완성 경험'입니다. AI캔버스는 매주 작동하는 결과물을 만들어 손에 쥐여드립니다.</p>
+      </div>
+    </section>
+
+    <section class="section dark" id="solution">
+      <div class="wrap">
+        <div class="section-title center reveal">
+          <span class="kicker">솔루션</span>
+          <h2>10주 뒤, 손에 남는 것</h2>
+          <p class="lead">강의장에서 끝나는 지식이 아니라, 실제로 보이고 연결되고 팔리는 비즈니스 시스템입니다.</p>
+        </div>
+        <div class="results">
+          <article class="result reveal"><strong>AI</strong><p>24시간 일하는 나만의 AI 비서 3종</p></article>
+          <article class="result reveal"><strong>GEO</strong><p>AI 검색이 먼저 인용하는 블로그 자동화 시스템</p></article>
+          <article class="result reveal"><strong>영상</strong><p>찍지 않고 키우는 AI 영상 + GEO 유튜브 채널</p></article>
+          <article class="result reveal"><strong>WEB</strong><p>내 손으로 만든 웹사이트 + 판매 랜딩페이지</p></article>
+          <article class="result reveal"><strong>PAY</strong><p>결제까지 되는 판매 퍼널</p></article>
+        </div>
+        <p class="spoken reveal">이 모든 걸 코딩 한 줄 없이, '말로' 만듭니다.</p>
+      </div>
+    </section>
+
+    <section class="section light" id="curriculum">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="kicker">10주 커리큘럼</span>
+          <h2>매주 하나씩 완성하는 실전 로드맵</h2>
+          <p class="lead">도구 학습에서 콘텐츠, 웹사이트, 자동화, 결제 퍼널까지 순서대로 쌓습니다.</p>
+        </div>
+        <div class="curriculum">
+          <details class="part reveal" open>
+            <summary>Part 1. AI 도구 마스터 (1~3주)</summary>
+            <div class="weeks">
+              <div class="week"><span class="no">1주</span><span class="date">7/15</span><span class="topic">OT + 포트폴리오 파일 만들기 — ChatGPT·Claude·Gemini·젠스파크</span></div>
+              <div class="week"><span class="no">2주</span><span class="date">7/22</span><span class="topic">구글 생태계 정복 / NotebookLM·제미나이 활용</span></div>
+              <div class="week"><span class="no">3주</span><span class="date">7/29</span><span class="topic">나만의 AI 에이전트 제작 — GPTs·GEMs·Claude Projects</span></div>
+            </div>
+          </details>
+          <details class="part reveal">
+            <summary>Part 2. GEO 콘텐츠 크리에이터 (4~5주)</summary>
+            <div class="weeks">
+              <div class="week highlight"><span class="no">4주</span><span class="date">8/5</span><span class="topic">AI가 먼저 찾아오는 글 — GEO 블로그 자동화</span></div>
+              <div class="week highlight"><span class="no">5주</span><span class="date">8/12</span><span class="topic">찍지 않고 채널 키우기 — AI 영상 + GEO 유튜브</span></div>
+            </div>
+          </details>
+          <details class="part reveal">
+            <summary>Part 3. 바이브코더 + 퍼널 구축 (6~9주)</summary>
+            <div class="weeks">
+              <div class="week"><span class="no">6주</span><span class="date">8/19</span><span class="topic">실전 웹앱 + 내 웹사이트 만들기</span></div>
+              <div class="week highlight"><span class="no">7주</span><span class="date">8/26</span><span class="topic">퍼널 설계 — 랜딩페이지 만들기 (퍼널체인저)</span></div>
+              <div class="week highlight"><span class="no">8주</span><span class="date">9/2</span><span class="topic">마케팅 자동화 — 이메일·카카오·문자</span></div>
+              <div class="week highlight"><span class="no">9주</span><span class="date">9/9</span><span class="topic">결제·수익화 퍼널 + 음원</span></div>
+            </div>
+          </details>
+          <details class="part reveal">
+            <summary>Part 4. 완성 & 자산화 (10주)</summary>
+            <div class="weeks">
+              <div class="week"><span class="no">10주</span><span class="date">9/16</span><span class="topic">피드백 & 포트폴리오 완성</span></div>
+            </div>
+          </details>
+        </div>
+        <p class="ceremony reveal">9/12(토) 오프라인 수료식 — 수료증 + 자격증 + 상장 + 제6회 캔버스 아트전시회</p>
+      </div>
+    </section>
+
+    <section class="section blue" id="instructor">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="kicker">강사 소개</span>
+          <h2>왜 김진수 강사인가</h2>
+          <p class="lead">비전공자도 매주 결과물을 만들 수 있게, 교육과 마케팅 현장에서 검증된 방식으로 이끕니다.</p>
+        </div>
+        <article class="profile reveal">
+          <div class="profile-aside">
+            <p class="name">김진수소장</p>
+            <div class="profile-photo-frame">
+              <img class="profile-photo" src="../assets/instructor-profile.png" alt="김진수 강사 프로필 사진" loading="lazy">
+            </div>
+            <p class="role">AI활용전문가 & GEO마케팅전문가</p>
+          </div>
+          <div class="profile-body">
+            <ul class="profile-list">
+              <li>GEO마케팅연구원 부원장</li>
+              <li>디지털융합교육원 부원장</li>
+              <li>메이랜드AI비즈랩 대표</li>
+              <li>AI전문가교육협회 KAEA AICLab 연구소장</li>
+              <li>AI활용교육전문가 / AI 강사 양성가</li>
+              <li>Gemini Certified Educator, 2025 생성형AI강사대상</li>
+            </ul>
+            <a class="link-card" href="https://7fmqrwok0eyq5t82.public.blob.vercel-storage.com/images/5qbd9.png" target="_blank" rel="noopener noreferrer">강사 소개 페이지 보기</a>
+            <a class="link-card" href="https://www.aiclab.kr/" target="_blank" rel="noopener noreferrer">AICLab 홈페이지 보기</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gold" id="benefits">
+      <div class="wrap">
+        <div class="section-title center reveal">
+          <span class="kicker">수강 혜택</span>
+          <h2>총 약 523만원 상당의 실행 패키지</h2>
+          <p class="lead">도구, 녹화본, 컨설팅, 템플릿, 커뮤니티까지 과정 이후에도 쓰는 자산으로 제공합니다.</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit reveal"><span>✓</span><p>Claude AI 글로벌 이수 수료증</p></div>
+          <div class="benefit reveal"><span>✓</span><p>위클래스 커뮤니티 평생 가입</p></div>
+          <div class="benefit reveal"><span>✓</span><p>AI 활용 전문가 민간자격증 선택 과정</p></div>
+          <div class="benefit reveal"><span>✓</span><p>퍼널브레인 & 퍼널체인저 1개월 무료 이용</p></div>
+          <div class="benefit reveal"><span>✓</span><p>AI 모델 8종 활용 가이드</p></div>
+          <div class="benefit reveal"><span>✓</span><p>김진수 강사 1:1 컨설팅</p></div>
+          <div class="benefit reveal"><span>✓</span><p>AI Talker 이용권</p></div>
+          <div class="benefit reveal"><span>✓</span><p>전 회차 1~6기 녹화본 제공</p></div>
+          <div class="benefit reveal"><span>✓</span><p>제6회 캔버스 아트전시회 작가 아트클래스</p></div>
+          <div class="benefit reveal"><span>✓</span><p>유료 AI 서비스 웹앱·챗봇 제공</p></div>
+          <div class="benefit reveal"><span>✓</span><p>GEO 마케팅 프롬프트 템플릿팩</p></div>
+        </div>
+        <div class="value-box reveal">
+          <strong>550,000원 수강 시 약 4,682,000원 상당 추가 혜택</strong>
+          <p>세부 혜택은 운영 사정에 따라 일부 변경될 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue" id="pricing">
+      <div class="wrap pricing-layout">
+        <div class="section-title reveal">
+          <span class="kicker">수강료</span>
+          <h2>얼리버드는 7월 10일(금)까지, 선착순 10명입니다.</h2>
+          <p class="lead">비전공자 맞춤 강의 구성, 전 회차 녹화본, 개강 전 전액 환불 기준을 명확히 안내합니다.</p>
+          <ul class="trust" aria-label="안심 요소">
+            <li>전 회차 녹화본 제공으로 결석해도 복습 가능</li>
+            <li>노트북과 구글 계정만 있으면 시작 가능</li>
+            <li>개강 전 신청 취소 시 평생교육법 기준 전액 환불</li>
+          </ul>
+        </div>
+        <aside class="price-card reveal" aria-label="수강료 정보">
+          <div class="original">정가 790,000원</div>
+          <div class="sale">550,000<span>원</span></div>
+          <div class="discount">30% OFF · VAT 포함</div>
+          <p class="urgency">2026년 7월 10일(금)까지 · 선착순 10명 한정</p>
+          <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">지금 얼리버드로 신청하기</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section light" id="faq">
+      <div class="wrap">
+        <div class="section-title center reveal">
+          <span class="kicker">FAQ</span>
+          <h2>신청 전 자주 묻는 질문</h2>
+        </div>
+        <div class="faq">
+          <details class="reveal" open>
+            <summary>컴퓨터·코딩을 전혀 몰라도 되나요?</summary>
+            <p>네. 코딩 0줄, '말로' 만드는 방식입니다. 크롬 브라우저와 구글 계정만 준비하면 됩니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>라이브 시간에 못 들으면 어떻게 하나요?</summary>
+            <p>전 회차 녹화본을 제공해 언제든 복습할 수 있습니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>40~60대도 따라갈 수 있나요?</summary>
+            <p>본 과정은 비전공 40~60대를 주 대상으로 설계됐고, 매주 결과물 완성을 돕습니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>준비물이 있나요?</summary>
+            <p>노트북과 안정적인 인터넷이면 충분합니다. 유료 도구는 무료 대안도 함께 안내합니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>수료하면 무엇이 남나요?</summary>
+            <p>결제되는 판매 퍼널, 웹사이트, AI 비서, GEO 콘텐츠 등 포트폴리오와 수료증·자격증·상장이 남습니다.</p>
+          </details>
+          <details class="reveal">
+            <summary>환불 규정은 어떻게 되나요?</summary>
+            <p>「평생교육법」 제28조 및 같은 법 시행령 제23조 별표3의 학습비 반환 기준에 따릅니다. 자세한 기준은 하단 환불 규정을 확인해 주세요.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark final-cta" id="apply">
+      <div class="wrap reveal">
+        <span class="kicker">마지막 안내</span>
+        <h2>이번엔, 진짜 '만들어' 가세요.</h2>
+        <p class="lead">10주 뒤 당신 손엔 결과물이 남습니다. 얼리버드는 7월 10일(금)까지입니다.</p>
+        <div class="mini-countdown" data-countdown aria-label="얼리버드 마감 카운트다운 반복">
+          <div class="timebox"><strong data-days>00</strong><span>일</span></div>
+          <div class="timebox"><strong data-hours>00</strong><span>시간</span></div>
+          <div class="timebox"><strong data-minutes>00</strong><span>분</span></div>
+          <div class="timebox"><strong data-seconds>00</strong><span>초</span></div>
+        </div>
+        <div class="cta-row" style="justify-content:center">
+          <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">지금 얼리버드로 신청하기</a>
+          <a class="cta secondary" href="tel:010-8921-9536">아직 고민된다면 전화 문의</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="policies">
+      <div class="wrap">
+        <div class="section-title reveal">
+          <span class="kicker">신청 / 푸터</span>
+          <h2>신청은 Google 폼에서 진행됩니다.</h2>
+          <p class="lead">모든 신청 버튼은 새 탭에서 신청 폼으로 연결됩니다. 문의는 전화 또는 이메일로 가능합니다.</p>
+        </div>
+        <div class="cta-row reveal">
+          <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">신청 폼 열기</a>
+          <a class="link-card" href="mailto:info@aiclab2020.com">info@aiclab2020.com</a>
+          <a class="link-card" href="tel:010-8921-9536">010-8921-9536</a>
+        </div>
+        <div class="policies">
+          <details class="reveal">
+            <summary>개인정보처리방침</summary>
+            <div class="policy-body">
+              <p>AICLab · 메이랜드AI비즈랩은 AI캔버스 7기 신청 및 문의 응대를 위해 이름, 연락처, 이메일, 신청 동기 등 신청자가 Google 폼에 직접 입력한 정보를 수집합니다.</p>
+              <ul>
+                <li>수집 목적: 수강 신청 확인, 안내 연락, 결제 및 환불 처리, 과정 운영 공지</li>
+                <li>보유 기간: 과정 종료 후 정산·분쟁 대응을 위해 필요한 기간까지 보관 후 파기</li>
+                <li>제3자 제공: 법령상 의무가 있거나 신청자가 동의한 경우를 제외하고 외부에 제공하지 않음</li>
+                <li>문의: info@aiclab2020.com / 010-8921-9536</li>
+              </ul>
+            </div>
+          </details>
+          <details class="reveal">
+            <summary>이용약관</summary>
+            <div class="policy-body">
+              <p>본 과정은 온라인 LIVE 수업과 녹화본, 실습 자료, 커뮤니티 지원을 포함합니다. 신청자는 과정 안내, 수강료, 환불 규정, 제공 혜택을 확인한 뒤 신청합니다.</p>
+              <ul>
+                <li>수업 참여를 위해 노트북, 인터넷, 구글 계정 준비가 필요합니다.</li>
+                <li>녹화본과 자료의 무단 복제, 재배포, 상업적 재판매를 금지합니다.</li>
+                <li>민간자격증 등 선택 항목은 별도 비용과 발급 조건이 적용될 수 있습니다.</li>
+                <li>운영 사정에 따라 세부 혜택과 일정은 동등 수준으로 조정될 수 있습니다.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="reveal" open>
+            <summary>환불 규정</summary>
+            <div class="policy-body">
+              <p>본 과정의 학습비 환불은 「평생교육법」 제28조제4항 및 같은 법 시행령 제23조 별표3 '학습비 반환 기준'에 따라 처리됩니다. 본 과정은 학습비 징수기간이 1개월을 초과하는 과정에 해당합니다.</p>
+              <ul>
+                <li>수업 시작 전: 이미 납부한 학습비 전액 반환</li>
+                <li>수업 시작 후: 반환사유가 발생한 달의 잔여분과 나머지 달의 학습비 전액을 합산하여 반환</li>
+                <li>총 수업시간의 1/3 경과 전: 해당 월 학습비의 2/3 반환</li>
+                <li>총 수업시간의 1/3~1/2 경과: 해당 월 학습비의 1/2 반환</li>
+                <li>총 수업시간의 1/2 경과 후: 반환하지 않음</li>
+                <li>실시간 원격 LIVE 외 녹화본만 수강한 경우에도 위 기준을 적용</li>
+                <li>운영자 귀책으로 수업이 불가한 경우: 미수강분을 일할 계산하여 반환</li>
+                <li>환불 신청일을 반환 산정 기준일로 하며, 반환 사유 발생일부터 5일 이내 환불</li>
+              </ul>
+              <p>본 규정은 관계 법령 개정 시 그에 따라 변경될 수 있습니다.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <strong>AICLab · 메이랜드AI비즈랩 | 생성형AI전문가 과정 AI캔버스 7기</strong>
+      <span>문의: 010-8921-9536 / info@aiclab2020.com</span>
+      <span><a href="#policies">개인정보처리방침</a> · <a href="#policies">이용약관</a> · <a href="#policies">환불 규정</a></span>
+    </div>
+  </footer>
+
+  <div class="floating-cta" aria-hidden="true">
+    <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">지금 얼리버드로 신청하기 · 55만원</a>
+  </div>
+
+  <script>
+    const deadline = new Date("2026-07-10T23:59:59+09:00").getTime();
+    const countdowns = Array.from(document.querySelectorAll("[data-countdown]"));
+    const pad = (number) => String(number).padStart(2, "0");
+
+    function updateCountdowns() {
+      const now = Date.now();
+      const remaining = Math.max(0, deadline - now);
+      const days = Math.floor(remaining / 86400000);
+      const hours = Math.floor((remaining % 86400000) / 3600000);
+      const minutes = Math.floor((remaining % 3600000) / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+
+      countdowns.forEach((countdown) => {
+        countdown.querySelector("[data-days]").textContent = pad(days);
+        countdown.querySelector("[data-hours]").textContent = pad(hours);
+        countdown.querySelector("[data-minutes]").textContent = pad(minutes);
+        countdown.querySelector("[data-seconds]").textContent = pad(seconds);
+      });
+    }
+
+    updateCountdowns();
+    window.setInterval(updateCountdowns, 1000);
+
+    const floatingCta = document.querySelector(".floating-cta");
+    const toggleFloatingCta = () => {
+      const visible = window.scrollY > 200;
+      floatingCta.classList.toggle("is-visible", visible);
+      floatingCta.setAttribute("aria-hidden", String(!visible));
+    };
+
+    toggleFloatingCta();
+    window.addEventListener("scroll", toggleFloatingCta, { passive: true });
+
+    const reveals = Array.from(document.querySelectorAll(".reveal"));
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach((element) => observer.observe(element));
+    } else {
+      reveals.forEach((element) => element.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
