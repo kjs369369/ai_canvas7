@@ -825,6 +825,35 @@
       box-shadow: var(--shadow);
     }
 
+    .member-discount {
+      margin: 18px 0 20px;
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(253, 177, 8, 0.12);
+      border: 1px solid rgba(253, 177, 8, 0.45);
+      text-align: left;
+    }
+
+    .member-discount strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--gold-bright);
+      font-size: 1.02rem;
+    }
+
+    .member-discount ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 700;
+    }
+
+    .member-discount p {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+    }
+
     .original {
       margin-bottom: 8px;
       color: var(--grey);
@@ -1175,23 +1204,24 @@
             <li class="badge">수료증 + 자격증(선택, 유료) + 상장</li>
           </ul>
           <div class="cta-row">
-            <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">회원 전용으로 신청하기</a>
+            <a class="cta" href="https://forms.gle/XwG7X73ctyaC4fmUA" target="_blank" rel="noopener noreferrer">회원 전용으로 신청하기</a>
             <a class="cta secondary" href="tel:010-8921-9536">전화로 문의하기</a>
           </div>
-          <p class="price-note">회원 전용 신청 페이지 · 선착순 10명</p>
+          <p class="price-note">정가 79만원 → 얼리버드 55만원 · 선착순 10명</p>
         </div>
 
-        <aside class="hero-panel reveal" aria-label="회원 전용 마감 카운트다운">
+        <aside class="hero-panel reveal" aria-label="얼리버드 마감 카운트다운">
           <div class="panel-top">
-            <div class="panel-label">회원 전용 신청 안내</div>
-            <p class="panel-title">회원 전용 혜택 적용</p>
+            <div class="panel-label">얼리버드 마감까지</div>
+            <p class="panel-title">2026년 7월 10일(금) 23:59 종료</p>
           </div>
-          <div class="countdown">
-            <div class="timebox"><strong>회원</strong><span>전용</span></div>
-            <div class="timebox"><strong>혜택</strong><span>적용</span></div>
-            <div class="timebox"><strong>신청</strong><span>가능</span></div>
+          <div class="countdown" data-countdown>
+            <div class="timebox"><strong data-days>00</strong><span>일</span></div>
+            <div class="timebox"><strong data-hours>00</strong><span>시간</span></div>
+            <div class="timebox"><strong data-minutes>00</strong><span>분</span></div>
+            <div class="timebox"><strong data-seconds>00</strong><span>초</span></div>
           </div>
-          <div class="panel-bottom">회원 전용 안내를 확인한 분만 신청해 주세요.</div>
+          <div class="panel-bottom">마감 이후에는 정가 790,000원이 적용됩니다.</div>
         </aside>
       </div>
     </section>
@@ -1336,7 +1366,7 @@
       <div class="wrap pricing-layout">
         <div class="section-title reveal">
           <span class="kicker">수강료</span>
-          <h2>회원 전용 신청 페이지입니다.</h2>
+          <h2>얼리버드는 7월 10일(금)까지, 선착순 10명입니다.</h2>
           <p class="lead">비전공자 맞춤 강의 구성, 전 회차 녹화본, 개강 전 전액 환불 기준을 명확히 안내합니다.</p>
           <ul class="trust" aria-label="안심 요소">
             <li>전 회차 녹화본 제공으로 결석해도 복습 가능</li>
@@ -1348,8 +1378,17 @@
           <div class="original">정가 790,000원</div>
           <div class="sale">550,000<span>원</span></div>
           <div class="discount">30% OFF · VAT 포함</div>
-          <p class="urgency">회원 전용 혜택 적용 · 선착순 10명 한정</p>
-          <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">회원 전용으로 신청하기</a>
+          <p class="urgency">2026년 7월 10일(금)까지 · 선착순 10명 한정</p>
+          <div class="member-discount" aria-label="회원 전용 할인 혜택">
+            <strong>회원 전용 추가 할인</strong>
+            <ul>
+              <li>AICLab 연구원, KAEA 협회임원: 30% 할인</li>
+              <li>KAEA 연회원, 김진수소장 수강생: 10% 할인</li>
+              <li>추천받은 분: 10% 할인</li>
+            </ul>
+            <p>할인은 중복 적용되지 않습니다.</p>
+          </div>
+          <a class="cta" href="https://forms.gle/XwG7X73ctyaC4fmUA" target="_blank" rel="noopener noreferrer">회원 전용으로 신청하기</a>
         </aside>
       </div>
     </section>
@@ -1393,14 +1432,15 @@
       <div class="wrap reveal">
         <span class="kicker">마지막 안내</span>
         <h2>이번엔, 진짜 '만들어' 가세요.</h2>
-        <p class="lead">10주 뒤 당신 손엔 결과물이 남습니다. 회원 전용 신청으로 안내됩니다.</p>
-        <div class="mini-countdown" aria-label="회원 전용 신청 안내">
-          <div class="timebox"><strong>회원</strong><span>전용</span></div>
-          <div class="timebox"><strong>혜택</strong><span>적용</span></div>
-          <div class="timebox"><strong>신청</strong><span>가능</span></div>
+        <p class="lead">10주 뒤 당신 손엔 결과물이 남습니다. 얼리버드는 7월 10일(금)까지입니다.</p>
+        <div class="mini-countdown" data-countdown aria-label="얼리버드 마감 카운트다운 반복">
+          <div class="timebox"><strong data-days>00</strong><span>일</span></div>
+          <div class="timebox"><strong data-hours>00</strong><span>시간</span></div>
+          <div class="timebox"><strong data-minutes>00</strong><span>분</span></div>
+          <div class="timebox"><strong data-seconds>00</strong><span>초</span></div>
         </div>
         <div class="cta-row" style="justify-content:center">
-          <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">회원 전용으로 신청하기</a>
+          <a class="cta" href="https://forms.gle/XwG7X73ctyaC4fmUA" target="_blank" rel="noopener noreferrer">회원 전용으로 신청하기</a>
           <a class="cta secondary" href="tel:010-8921-9536">아직 고민된다면 전화 문의</a>
         </div>
       </div>
@@ -1414,7 +1454,7 @@
           <p class="lead">모든 신청 버튼은 새 탭에서 신청 폼으로 연결됩니다. 문의는 전화 또는 이메일로 가능합니다.</p>
         </div>
         <div class="cta-row reveal">
-          <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">신청 폼 열기</a>
+          <a class="cta" href="https://forms.gle/XwG7X73ctyaC4fmUA" target="_blank" rel="noopener noreferrer">신청 폼 열기</a>
           <a class="link-card" href="mailto:info@aiclab2020.com">info@aiclab2020.com</a>
           <a class="link-card" href="tel:010-8921-9536">010-8921-9536</a>
         </div>
@@ -1474,11 +1514,11 @@
   </footer>
 
   <div class="floating-cta" aria-hidden="true">
-    <a class="cta" href="https://forms.gle/vCQyKPXGyGPRwaf89" target="_blank" rel="noopener noreferrer">회원 전용으로 신청하기 · 55만원</a>
+    <a class="cta" href="https://forms.gle/XwG7X73ctyaC4fmUA" target="_blank" rel="noopener noreferrer">회원 전용 신청하기 · 55만원</a>
   </div>
 
   <script>
-    const deadline = new Date("2026-06-30T23:59:59+09:00").getTime();
+    const deadline = new Date("2026-07-10T23:59:59+09:00").getTime();
     const countdowns = Array.from(document.querySelectorAll("[data-countdown]"));
     const pad = (number) => String(number).padStart(2, "0");
 
