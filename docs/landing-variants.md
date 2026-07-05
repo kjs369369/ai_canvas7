@@ -11,7 +11,7 @@
 | 구분 | 로컬 파일 | 배포 URL | 용도 | 신청 링크 |
 |---|---|---|---|---|
 | 기존 | `index.html` | `/` | 기존 일반 모집 페이지 | `https://forms.gle/vCQyKPXGyGPRwaf89` |
-| 무료특강 오후반 | `free-evening/index.html` | `/free-evening/` | 2026.7.9(목) 오후 8:30 무료특강 | `https://forms.gle/KL7f6uJcr5PsS5gd7` |
+| 무료특강 오후반 | `free-evening/index.html` | `/free-evening/` | 2026.7.9(목) 오후 8:30 무료특강 | `https://forms.gle/t8EBCayufpK4WX887` |
 | 회원용 오전반 | `member-morning/index.html` | `/member-morning/` | 2026.7.9(목) 오전 10:00 회원용 무료특강 | `https://forms.gle/kXLPUULzuxeb32mA9` |
 
 ## 운영 원칙
